@@ -158,7 +158,7 @@ main {
 }
 
 .bground {
-  display: none;
+  display:none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -214,7 +214,7 @@ input {
   font-size: 20px;
   height: 48px;
 }
-.formData[data-error]::after {
+.form-data[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
   color: #e54858;
@@ -226,10 +226,10 @@ input {
   opacity: 0;
   transition: 0.3s;
 }
-.formData[data-error-visible="true"]::after {
+.form-data[data-error-visible="true"]::after {
   opacity: 1;
 }
-.formData[data-error-visible="true"] .text-control {
+.form-data[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
 /* 
@@ -301,6 +301,18 @@ input[data-error]::after {
   transform: rotate(-55deg);
   left: 21%;
   top: 19%;
+}
+.radio-error{
+  display: none;
+  position : absolute;
+padding : 10px;
+background :White;
+border-radius:5px;
+border: 1px solid black;
+z-index: 10;
+font-size:14px;
+font-weight:lighter;
+color: #000;
 }
 .close {
   position: absolute;
@@ -397,9 +409,9 @@ input[data-error]::after {
 }
 
 /* Hide the items when the select box is closed: */
-.select-hide {
+/*.select-hide {
   display: none;
-}
+}*/
 
 .select-items div:hover,
 .same-as-selected {
