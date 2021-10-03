@@ -42,7 +42,6 @@ const closeModal = async () => {
 // form check function
 reservationForm.addEventListener('submit', async (e) => {
  
-  e.preventDefault();
   let reservationToken = 0;
   let radioToken = 0;
   const checkName = /^([a-zA-Z]){2,}$/;
