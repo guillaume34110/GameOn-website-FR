@@ -16,7 +16,7 @@
 <body>
   <div class="topnav" id="myTopnav">
     <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="./Logo.png" />
     </div>
     <div class="main-navbar">
 
@@ -30,9 +30,10 @@
       </a>
     </div>
   </div>
-  </div>
+
   <main>
     <div class="hero-section">
+
       <div class="hero-content">
         <h1 class="hero-headline">
           Marathon national<br>
@@ -49,17 +50,19 @@
       <div class="hero-img">
         <img src="./bg_img.jpg" alt="img" />
       </div>
-
+      <button onclick="launchModal()" class="btn-signup-small-screen modal-btn">
+        je m'inscris
+      </button>
 
       <div class="bground">
         <div class="content">
           <span class="close" onclick="closeModal()"></span>
           <div class="modal-body">
-            <form class="reservation-form" name="reservation" action="" method="post" onsubmit="return true; ">
+            <form class="reservation-form" name="reservation" method="post" onsubmit="return true; ">
               <div class="form-data">
                 <label for="first-name">Prénom</label><br>
                 <input class="text-control" type="text" id="first-name" name="first" minlength="2" /><br>
-                <p class="alert" id="alert-first-name">le prénom doit contenir au moins deux lettres</p>
+                <p class="alert" id="alert-first-name">Le prénom doit contenir au moins deux lettres</p>
               </div>
               <div class="form-data">
                 <label for="last-name">Nom</label><br>
@@ -67,7 +70,7 @@
                 <p class="alert" id="alert-last-name">le prénom doit contenir au moins deux lettres</p>
               </div>
               <div class="form-data">
-                <label for="email" data-error="mail invalide">E-mail</label><br>
+                <label for="email">E-mail</label><br>
                 <input class="text-control" type="email" id="email" name="email" /><br>
                 <p class="alert" id="alert-email">adresse mail invalide</p>
               </div>
@@ -111,32 +114,34 @@
               </div>
               <p class="alert" id="alert-radios">Vous devez entrer coché au moin une case</p>
               <div class="form-data ">
-              <input class="checkbox-input" type="checkbox" id="checkbox-required" checked />
-              <label class="checkbox2-label" for="checkbox-required">
-                <span class="checkbox-icon"></span>
-                J'ai lu et accepté les conditions d'utilisation.
-              </label>
+                <input class="checkbox-input" type="checkbox" id="checkbox-required" checked />
+                <label class="checkbox2-label" for="checkbox-required">
+                  <span class="checkbox-icon"></span>
+                  J'ai lu et accepté les conditions d'utilisation.
+                </label>
 
-              <p class="alert ">Vous devez accepté les conditions d'utilisation.</p>
-              <input class="checkbox-input" type="checkbox" id="checkbox2" />
-              <label class="checkbox2-label" for="checkbox2">
-                <span class="checkbox-icon"></span>
-                Je souhaite être prévenu des prochains évènements.
-              </label>
-              <br>
+                <p class="alert ">Vous devez accepté les conditions d'utilisation.</p>
+                <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                <label class="checkbox2-label" for="checkbox2">
+                  <span class="checkbox-icon"></span>
+                  Je souhaite être prévenu des prochains évènements.
+                </label>
+                <br>
+              </div>
+              <button class="btn-submit button" type="submit">C'est parti</button>
+            </form>
           </div>
-          <button class="btn-submit button" type="submit">C'est parti</button>
-          </form>
-        </div>
-        <div class="thanks-box">
-          <div class ="fill"></div>
+          <div class="thanks-box">
+            <div class="fill"></div>
             <h2>Merci d'avoir soumis vos informations d'enregitrement</h2>
-            <button class="btn-signup modal-btn" onclick="closeModal()">
+            <button class="btn-close modal-btn" onclick="closeModal()">
               Fermer
             </button>
-          
+
+          </div>
         </div>
-      </div>
+        </div>
+        </div>
   </main>
   <footer>
     <p class="copyrights">

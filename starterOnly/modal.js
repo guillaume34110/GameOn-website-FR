@@ -2,9 +2,6 @@
 // DOM Elements
 const modalBg = document.querySelector(".bground");
 const content = document.querySelector(".content");
-
-const formData = document.querySelectorAll(".form-data");
-const closeBg = document.querySelector('.close');
 const reservationForm = document.querySelector('.reservation-form')
 const modalBody = document.querySelector('.modal-body');
 const thanksBox = document.querySelector('.thanks-box')
@@ -12,6 +9,7 @@ const textControl = document.querySelectorAll('.text-control');
 const radios = document.querySelectorAll('.radio')
 const checkboxRequired = document.querySelector('#checkbox-required')
 const alerts = document.querySelectorAll('.alert')
+const main = document.querySelector('main')
 //timer function 
 function timeout(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -21,6 +19,7 @@ function timeout(ms) {
 const launchModal = () => {
   console.log('enter')
   modalBg.style.display = "flex";
+  main.style.position = "fixed";
 }
 // launch modal event
 const closeModal = async () => {
@@ -31,6 +30,7 @@ const closeModal = async () => {
   modalBg.style.display = "none";
   modalBg.style.background = "rgba(26, 39, 156, 0.4)";
   content.classList.remove("modal-close-animation");
+  main.style.position = "initial";
   if (thanksBox.style.display !== "none"){
     thanksBox.style.display = "none";
     modalBody.style.display = "block";
@@ -39,18 +39,19 @@ const closeModal = async () => {
 }
 
 
-
+// form check function
 reservationForm.addEventListener('submit', async (e) => {
  
   e.preventDefault();
- let reservationToken = 0;
- let radioToken = 0;
+  let reservationToken = 0;
+  let radioToken = 0;
   const checkName = /^([a-zA-Z]){2,}$/;
   const checkMail = /^\S+@\S+\.\S+$/;
   const checkDate = /^[+-]?\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
   const checkNumber = /^[1-9][0-9]?$/;
+
   textControl.forEach (e=> {
-   console.log(checkName.test(e.value))
+  console.log(checkName.test(e.value))
     if ((e.id === "first-name"||e.id === "last-name") && !checkName.test(e.value) ) {
       e.classList.add('text-error');
       if (e.id === "first-name") {
@@ -110,7 +111,7 @@ reservationForm.addEventListener('submit', async (e) => {
       alerts[6].classList.remove('alert-active');
     }
 
-  if (reservationToken===0){
+  if (reservationToken===0){ 
   modalBody.style.transition = '0.3s';
   modalBody.style.opacity = 0;
   await timeout(300)
