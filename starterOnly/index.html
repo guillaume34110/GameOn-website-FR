@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="modal.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -39,78 +40,81 @@
           Vous aimez jouer ? Notre prochain évènement gaming est ouvert
           aux réservations... Places limitées !
         </p>
-        <button class="btn-signup modal-btn">
+        <button  onclick="launchModal()" class="btn-signup modal-btn">
           je m'inscris
         </button>
       </div>
       <div class="hero-img">
-        <img src="./bg_img.jpg" alt="img" />
+        <img src="./bg_img.jpg" alt="img"  />
       </div>
-      <button class="btn-signup modal-btn">
-        je m'inscris
-      </button>
-    </div>
+    
 
     <div class="bground">
       <div class="content">
-        <span class="close"></span>
+        <span class="close" onclick="closeModal()"></span>
         <div class="modal-body">
           <form class = "reservation-form"name="reservation" action="" method = "post"  onsubmit="return true; ">
             <div class="form-data">
-              <label data-error="le prénom doit contenir au moins deux lettres" for="first-name">Prénom</label><br>
-              <input class="text-control" type="text" id="first-name" name="first" minlength="2" required /><br>
-            </div>
+              <label  for="first-name">Prénom</label><br>
+              <input class="text-control" type="text" id="first-name" name="first" minlength="2" /><br>
+            <p class = "alert" id ="alert-first-name">le prénom doit contenir au moins deux lettres</p>
+          </div>
             <div class="form-data">
               <label for="last-name">Nom</label><br>
-              <input class="text-control" type="text" id="last-name" name="last" minlength="2" required /><br>
+              <input class="text-control" type="text" id="last-name" name="last" minlength="2"  /><br>
+              <p class = "alert" id ="alert-last-name">le prénom doit contenir au moins deux lettres</p>
             </div>
             <div class="form-data">
               <label for="email" data-error="mail invalide">E-mail</label><br>
-              <input class="text-control" type="email" id="email" name="email" required /><br>
+              <input class="text-control" type="email" id="email" name="email"  /><br>
+              <p class = "alert" id ="alert-email">adresse mail invalide</p>
             </div>
             <div class="form-data">
               <label for='birth-date'>Date de naissance</label><br>
-              <input class="text-control" type="date" id="birth-date" name="birth-date" required /><br>
+              <input class="text-control" type="date" id="birth-date" name="birth-date"  /><br>
+              <p class = "alert" id ="alert-birth-date">Vous devez entrer votre date de naissance.</p>
             </div>
             <div class="form-data">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required>
+              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" >
+              <p class = "alert" id ="alert-quantity">Vous devez entrer votre date de naissance.</p>
             </div>
             <p class="text-label">Dans quelles villes ?</p>
-            <div class="form-data">
-              <input class="checkbox-input radio" type="radio" id="location1" name="location" value="New York" checked required/>
+            <div class="form-data radio-contenair">
+              <input class="checkbox-input radio"type="checkbox" id="location1" name="location" value="New York"  />
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
                 New York</label>
-              <input class="checkbox-input radio" type="radio" id="location2" name="location" value="San Francisco" />
+              <input class="checkbox-input radio" type="checkbox" id="location2" name="location" value="San Francisco" />
               <label class="checkbox-label" for="location2">
                 <span class="checkbox-icon"></span>
                 San Francisco</label>
-              <input class="checkbox-input radio" type="radio" id="location3" name="location" value="Seattle" />
+              <input class="checkbox-input radio" type="checkbox" id="location3" name="location" value="Seattle" />
               <label class="checkbox-label" for="location3">
                 <span class="checkbox-icon"></span>
                 Seattle</label>
-              <input class="checkbox-input radio" type="radio" id="location4" name="location" value="Chicago" />
+              <input class="checkbox-input radio" type="checkbox" id="location4" name="location" value="Chicago" />
               <label class="checkbox-label" for="location4">
                 <span class="checkbox-icon"></span>
                 Chicago</label>
-              <input class="checkbox-input radio" type="radio" id="location5" name="location" value="Boston" />
+              <input class="checkbox-input radio" type="checkbox" id="location5" name="location" value="Boston" />
               <label class="checkbox-label" for="location5">
                 <span class="checkbox-icon"></span>
                 Boston</label>
-              <input class="checkbox-input radio" type="radio" id="location6" name="location" value="Portland" />
+              <input class="checkbox-input radio" type="checkbox" id="location6" name="location" value="Portland" />
               <label class="checkbox-label" for="location6">
                 <span class="checkbox-icon"></span>
-                Portland</label>
+                Portland</label> 
             </div>
-            <p class = "radio-error">Vous devez cocher une case</p>
-            <div class="form-data">
-              <input class="checkbox-input" type="checkbox" id="checkbox1" checked />
-              <label class="checkbox2-label" for="checkbox1" required>
+            <p class = "alert" id ="alert-radios">Vous devez entrer coché au moin une case</p>
+            <div class="form-data "></div>
+              <input class="checkbox-input"  type="checkbox" id="checkbox-required"  checked/>
+              <label class="checkbox2-label" for="checkbox-required" >
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
-              <br>
+              
+              <p class = "alert ">Vous devez accepté les conditions d'utilisation.</p>
               <input class="checkbox-input" type="checkbox" id="checkbox2" />
               <label class="checkbox2-label" for="checkbox2">
                 <span class="checkbox-icon"></span>
@@ -120,6 +124,13 @@
             </div>
             <input class="btn-submit button" type="submit"  value="C'est parti" />
           </form>
+        </div>
+        <div class="thanks-box">
+          <div></div>
+          <h2>Merci d'avoir soumis vos informations d'enregitrement</h2>
+          <button class="btn-signup modal-btn" onclick="closeThanks()">
+             Fermer
+          </button>
         </div>
       </div>
     </div>
