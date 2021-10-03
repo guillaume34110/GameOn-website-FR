@@ -125,6 +125,7 @@ main {
   padding: 0.75rem 2.5rem;
   border-radius: 1rem;
   cursor: pointer;
+  min-width : 180px;
 }
 
 .modal-btn:hover {
@@ -195,7 +196,8 @@ main {
   animation-iteration-count: 1;
 }
 .modal-body {
-  padding: 15px 8%;
+  
+  padding: 15px 8%  1px 8%;
   margin: 15px auto;
 }
 
@@ -370,7 +372,7 @@ transition: all 0.5s;
 .btn-signup {
   background: #fe142f;
   display: block;
-  margin: 0 auto;
+  margin: 2vh auto 0 auto;
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
@@ -404,7 +406,7 @@ transition: all 0.5s;
   justify-content: space-between;
   align-items: center;
   height:90vh;
-  padding :0 10vw 3vh 10vw;
+  padding :10vh 10vw 1vh 10vw;
 }
 
 

@@ -2,7 +2,7 @@
 // DOM Elements
 const modalBg = document.querySelector(".bground");
 const content = document.querySelector(".content");
-const modalBtn = document.querySelectorAll(".modal-btn");
+
 const formData = document.querySelectorAll(".form-data");
 const closeBg = document.querySelector('.close');
 const reservationForm = document.querySelector('.reservation-form')
@@ -24,21 +24,20 @@ const launchModal = () => {
 }
 // launch modal event
 const closeModal = async () => {
+  
   content.classList.add("modal-close-animation");
   modalBg.style.background = 'rgba(26, 39, 156, 0)';
   await timeout(795);
   modalBg.style.display = "none";
   modalBg.style.background = "rgba(26, 39, 156, 0.4)";
   content.classList.remove("modal-close-animation");
+  if (thanksBox.style.display !== "none"){
+    thanksBox.style.display = "none";
+    modalBody.style.display = "block";
+    modalBody.style.opacity = 1;
+  }
 }
 
-const closeThanks = async() =>{
-  await closeModal(); 
-  thanksBox.style.display = "none";
-  modalBody.style.display = "block";
-  modalBody.style.opacity = 1;
-  
-}
 
 
 reservationForm.addEventListener('submit', async (e) => {
@@ -53,71 +52,71 @@ reservationForm.addEventListener('submit', async (e) => {
   textControl.forEach (e=> {
    console.log(checkName.test(e.value))
     if ((e.id === "first-name"||e.id === "last-name") && !checkName.test(e.value) ) {
-      e.classList.add('text-error')
+      e.classList.add('text-error');
       if (e.id === "first-name") {
-        alerts[0].classList.add('alert-active')
+        alerts[0].classList.add('alert-active');
       }
       else if (e.id === "last-name") {
-        alerts[1].classList.add('alert-active')
+        alerts[1].classList.add('alert-active');
       }
-      reservationToken ++
+      reservationToken ++;
     }else if((e.id === "first-name"||e.id === "last-name") && checkName.test(e.value)){
       e.classList.remove('text-error')
       if (e.id === "first-name") {
-        alerts[0].classList.remove('alert-active')
+        alerts[0].classList.remove('alert-active');
       }
       else if (e.id === "last-name") {
-        alerts[1].classList.remove('alert-active')
+        alerts[1].classList.remove('alert-active');
       }
     }
     if (e.id==='email' && !checkMail.test(e.value)) {
-      e.classList.add('text-error')
-      reservationToken ++
-      alerts[2].classList.add('alert-active')
+      e.classList.add('text-error');
+      reservationToken ++;
+      alerts[2].classList.add('alert-active');
     }else if(e.id==='email' && checkMail.test(e.value)){
-      e.classList.remove('text-error')
-      alerts[2].classList.remove('alert-active')
+      e.classList.remove('text-error');
+      alerts[2].classList.remove('alert-active');
     }
     if (e.id==='birth-date' && !checkDate.test(e.value)) {
-      e.classList.add('text-error')
-      reservationToken ++
-      alerts[3].classList.add('alert-active')
+      e.classList.add('text-error');
+      reservationToken ++;
+      alerts[3].classList.add('alert-active');
     }else if(e.id==='birth-date' && checkDate.test(e.value)){
-      e.classList.remove('text-error')
-      alerts[3].classList.remove('alert-active')
+      e.classList.remove('text-error');
+      alerts[3].classList.remove('alert-active');
     }
     if (e.id==='quantity' && !checkNumber.test(e.value)) {
-      e.classList.add('text-error')
-      reservationToken ++
-      alerts[4].classList.add('alert-active')
+      e.classList.add('text-error');
+      reservationToken ++;
+      alerts[4].classList.add('alert-active');
     }else if(e.id==='quantity' && checkNumber.test(e.value)){
       e.classList.remove('text-error')
-      alerts[4].classList.remove('alert-active')
+      alerts[4].classList.remove('alert-active');
     }
   })
   radios.forEach (e=> {
     if (e.checked) radioToken++
     })
     if (radioToken === 0 ){
-      reservationToken++
-      alerts[5].classList.add('alert-active')
+      reservationToken++;
+      alerts[5].classList.add('alert-active');
     }else if (radioToken!== 0 ){
-      alerts[5].classList.remove('alert-active')
+      alerts[5].classList.remove('alert-active');
     }
     if (!checkboxRequired.checked ){
       reservationToken++
-      alerts[6].classList.add('alert-active')
+      alerts[6].classList.add('alert-active');
     }else if (checkboxRequired.checked ){
-      alerts[6].classList.remove('alert-active')
+      alerts[6].classList.remove('alert-active');
     }
 
   if (reservationToken===0){
-  modalBody.style.transition = '0.3s'
-  modalBody.style.opacity = 0
+  modalBody.style.transition = '0.3s';
+  modalBody.style.opacity = 0;
   await timeout(300)
-  modalBody.style.display = "none"
-  thanksBox.style.display = "flex"
-  reservationForm.reset()
+  modalBody.style.display = "none";
+  thanksBox.style.display = "flex";
+  reservationForm.reset();
   }
 })
 
