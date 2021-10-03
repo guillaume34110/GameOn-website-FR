@@ -121,7 +121,6 @@ reservationForm.addEventListener('submit', async (e) => {
   }
 })
 
-
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
