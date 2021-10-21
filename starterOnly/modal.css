@@ -10,7 +10,7 @@
 }
 /* Landing Page */
 
-body {
+body {  /*retrait du background*/
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -128,7 +128,7 @@ main {
   font-size: 16px;
 }
 
-.bground {
+.bground {/*ajout du display flex pour centre l'element*/
   
   display:none;
   align-items: center;
@@ -144,6 +144,7 @@ main {
   
   background: rgba(26, 39, 156, 0.4);
   transition : 0.8s;
+  /*no scrollbar*/
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
@@ -170,7 +171,7 @@ main {
 .content::-webkit-scrollbar {
   display: none;
 }
-.modal-close-animation{
+.modal-close-animation{/*transition douce*/
   animation-name: modalclose;
   animation-iteration-count: 1;
 }
@@ -218,15 +219,13 @@ input {
 }
 
 
-/* 
+/* trop lourd !!!!
 input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: red;
 } */
-.checkbox-label{
 
-}
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -590,7 +589,7 @@ footer {
     display: none;
    
   }
-  .btn-signup-small-screen{
+  .btn-signup-small-screen{/*small button*/
     display: block;
      margin-top: 4vh;
   }
@@ -598,22 +597,22 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
-  .topnav a {
+  .topnav a {/* regroupement du media screen 768px*/
     display: none;
   }
-  .topnav a.icon {
+  .topnav a.icon {/**/
     float: right;
     display: block;
   }
-  .topnav.responsive {
+  .topnav.responsive {/**/
     position: relative;
   }
-  .topnav.responsive .icon {
+  .topnav.responsive .icon {/**/
     position: absolute;
     right: 0;
     top: 0;
   }
-  .topnav.responsive a {
+  .topnav.responsive a {/**/
     float: none;
     display: block;
     text-align: left;
@@ -648,6 +647,46 @@ footer {
     text-align:center;
   }
 } 
+@media screen and (max-width: 380px) {
+ .header-logo img {
+    width: 230px;
+  }
+ 
+  .hero-headline {
+    font-size: 3.5rem;
+    white-space: normal;
+  }
+  .hero-text {
+    width: unset;
+    font-size: 1.5rem;
+  }
+  .hero-content {
+    display:flex;
+    flex-direction: column;
+    padding: 0;
+    background: #fff;
+    color: #000;
+   height:fit-content;
+    min-width :300px;
+    overflow: hidden;
+  }
+  .topnav a {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+    
+  }
+  .quantity-label{
+    line-height:1.2rem;
+    margin-top: 5px;
+  }
+  .radio-contenair{
+    height:100px;
+  }
+  
+} 
 @media screen and (max-height: 750px) {
 .bground{
   align-items: flex-start;
@@ -666,7 +705,7 @@ footer {
   }
 }
 
-@keyframes modalclose {
+@keyframes modalclose {/*pour faire comme le open*/
   from {
     opacity: 1;
   }
