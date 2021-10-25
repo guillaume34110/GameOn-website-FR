@@ -359,6 +359,7 @@ transition: all 0.5s;
   cursor: pointer;
   border: 0;
 }
+
 /*error message on form fields*/
 
 .alert{
