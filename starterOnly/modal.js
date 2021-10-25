@@ -1,5 +1,6 @@
 
 // DOM Elements
+
 const modalBg = document.querySelector(".bground");
 const content = document.querySelector(".content");
 const reservationForm = document.querySelector('.reservation-form')
@@ -10,6 +11,8 @@ const radios = document.querySelectorAll('.radio')
 const checkboxRequired = document.querySelector('#checkbox-required')
 const alerts = document.querySelectorAll('.alert')
 const main = document.querySelector('main')
+const body = document.querySelector('body')
+const topNav = document.querySelector('.topnav')
 //timer function 
 function timeout(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -19,7 +22,9 @@ function timeout(ms) {
 const launchModal = () => {
   console.log('enter')
   modalBg.style.display = "flex";
-  main.style.position = "fixed";
+  body.style.overflow = "hidden";
+  body.style.height = "100vh"
+  topNav.style.overflow =  "visible"
 }
 // launch modal event
 const closeModal = async () => { // ferme le modal 
@@ -31,6 +36,9 @@ const closeModal = async () => { // ferme le modal
   modalBg.style.background = "rgba(26, 39, 156, 0.4)";/// cette fonction est essetiellement une animation(fondu) de la fermeture du modal
   content.classList.remove("modal-close-animation");
   main.style.position = "initial";
+  body.style.overflow = "scroll";
+  body.style.height = "100%"
+  topNav.style.overflow =  "hidden"
   if (thanksBox.style.display !== "none") {// ferme la thankbox si elle existe
     thanksBox.style.display = "none";
     modalBody.style.display = "block";
@@ -40,7 +48,7 @@ const closeModal = async () => { // ferme le modal
 
 
 // form check function
-reservationForm.addEventListener('submit', async (e) => {
+reservationForm.addEventListener('submit',  (e) => {
 
   e.preventDefault();
   // utilisation de tickets

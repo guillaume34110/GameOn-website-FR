@@ -18,8 +18,12 @@ body {  /*retrait du background*/
   font-size: 18px;
   max-width: 1300px;
   margin: 0 auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
-
+body::-webkit-scrollbar {
+  display: none;
+}
 p {
   margin-bottom: 0;
   padding: 0.5vw;
@@ -137,8 +141,7 @@ main {
   z-index: 1;
   left: 0;
   top: 0;
-  min-height: 100vh;
-  max-height:100%;
+  height: 100vh;
   overflow-y: scroll;
   width: 100%;
   
@@ -385,8 +388,7 @@ transition: all 0.5s;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height:90vh;
-  min-height:718px;
+  min-height:732px;
   padding :10vh 10vw 1vh 10vw;
 }
 
@@ -463,10 +465,10 @@ transition: all 0.5s;
   font-size: 16px;
 }
 .hero-section {
+  position : relative;
   min-height: 93vh;
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  display: flex;
   overflow: hidden;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
@@ -506,6 +508,7 @@ transition: all 0.5s;
   margin-top: 57px;
   padding: 0;
 }
+
 .btn-signup,.btn-close {
   outline: none;
   text-transform: capitalize;
@@ -529,9 +532,14 @@ transition: all 0.5s;
   border: none;
 }
 .hero-img {
-  grid-column: span 8;
+  position : absolute;
+       width: 50%;
+        height: 100%;
+        left:50%;
+     
 }
 .hero-img img {
+  object-fit: cover;
   width: 100%;
   height: 100%;
   display: block;
@@ -561,8 +569,9 @@ footer {
     display: none;
   }
   .hero-section {
-    display: block;
+    display: flex;
     box-shadow: unset;
+    flex-direction: column;
   }
   .hero-content {
     background: #fff;
@@ -579,10 +588,18 @@ footer {
     white-space: normal;
   }
   .hero-text {
+
     width: unset;
     font-size: 1.5rem;
   }
+  .hero-img  {
+    align-self: center;
+    position: initial;
+    width : 90%
+  }
+
   .hero-img img {
+ 
     border-radius: 10px;
     margin-top: 40px;
   }
