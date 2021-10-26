@@ -503,7 +503,7 @@ transition: all 0.5s;
 
 }
 .hero-text {
-  width: 95%;
+  width: 40%;
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
@@ -533,9 +533,9 @@ transition: all 0.5s;
 }
 .hero-img {
   position : absolute;
-       width: 50%;
+       width: 60%;
         height: 100%;
-        left:50%;
+        left:40%;
      
 }
 .hero-img img {
